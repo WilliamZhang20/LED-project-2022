@@ -15,10 +15,10 @@ while num!=0:
                 GPIO.setup(18, GPIO.OUT)
                 GPIO.setup(23, GPIO.OUT)
                 GPIO.setup(24, GPIO.IN)
-                GPIO.output(23, GPIO.LOW)
-                GPIO.output(18, GPIO.HIGH)
-                time.sleep(5)
-                GPIO.output(18, GPIO.LOW)
+                GPIO.output(23, GPIO.LOW) # sets to 0V
+                GPIO.output(18, GPIO.HIGH) # initiates current flow
+                time.sleep(5) 
+                GPIO.output(18, GPIO.LOW) # stops the current
         elif num==2:
                 GPIO.setup(18, GPIO.OUT)
                 GPIO.setup(24, GPIO.OUT)
