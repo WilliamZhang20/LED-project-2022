@@ -10,7 +10,7 @@ rand = random.randint(0, 2)
 for i in range (50):
         rand2 = random.randint(0, 1)
         pins = [18, 23, 24]
-        disconnect = pins[rand] # pin set to high impedance mode (input in GPIO)
+        disconnect = pins[rand] # pin set to high impedance mode (input mode in GPIO)
         pins.remove(pins[rand])
         high = pins[rand2]
         low = pins[1-rand2]
