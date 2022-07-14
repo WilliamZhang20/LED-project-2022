@@ -14,7 +14,7 @@ for i in range(5): # take 5 times
         print "Take number", i+1
         time.sleep(5) # time for camera self-orientation
         camera.start_preview()
-        camera.capture('/home/pi/project2022/cameraProject/projectPhotos/image%s.jpg' % i) # stores the photo
+        camera.capture('/home/pi/project2022/cameraProject/projectPhotos/image%s.jpg' % i) # stores the photo in a folder for photos (called "projectPhotos")
         camera.stop_preview()
 
         toaddr = 'wzhang20@yahoo.com'
@@ -30,7 +30,7 @@ for i in range(5): # take 5 times
         msg.preamble = "Test"
 
         part = MIMEBase('application', "octet-stream")  
-        part.set_payload(open("projectPhotos/image%s.jpg"%i, "rb").read())  
+        part.set_payload(open("projectPhotos/image%s.jpg"%i, "rb").read())  # the code itself is in the "cameraProject" folder (see line 17) so it must change directories to pull the photo
         encoders.encode_base64(part)  
         part.add_header('Content-Disposition', 'attachment; filename="projectPhotos/image%s.jpg"%i') 
         msg.attach(part)
