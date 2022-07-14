@@ -14,7 +14,7 @@ while num!=0:
                 # output: 18, input: 23, disconnected: 24
                 GPIO.setup(18, GPIO.OUT)
                 GPIO.setup(23, GPIO.OUT)
-                GPIO.setup(24, GPIO.IN)
+                GPIO.setup(24, GPIO.IN) # sets to high impedance (giving the pin a high resistance so no current will flow into it)
                 GPIO.output(23, GPIO.LOW) # sets to 0V
                 GPIO.output(18, GPIO.HIGH) # initiates current flow
                 time.sleep(5) 
