@@ -1,3 +1,10 @@
+# Written in July 2022
+# In this program, I made a Raspberry Pi Camera Module take a photo every 10 seconds. After each capture, the program sends the photo to my email as an attachment.
+# To take the photo, I imported the PiCamera library, and defined a camera object. Once the photo is taken, the file is stored. 
+# To send the email, I used the SMTP (Simple Mail Transfer Protocol) server to access Yahoo mail and created the message with a MIME object. 
+# To login before sending the email, I use my email address and app password. The app password is not the password used to login to yahoo. 
+# To get an app password, I had to go to yahoo.com, then from my profile at the top right corner, I went to settings->account security->scroll down->generate app password. 
+################################################ End of Comments ###############################################################
 import smtplib, ssl
 import time
 from email import encoders
@@ -8,11 +15,11 @@ from email.mime.base import MIMEBase
 from email.mime.image import MIMEImage
 
 camera = PiCamera()
-camera.rotation = 180 # the camera I used had to be placed upside down, so I flipped it over 
+camera.rotation = 180 # the camera I used was placed upside down, so I flipped the view over 
 
-for i in range(5): # take 5 times
+for i in range(5): # repeats 5 times
         print "Take number", i+1
-        time.sleep(5) # time for camera self-orientation
+        time.sleep(5) # time for camera's light and focus adjustment
         camera.start_preview()
         camera.capture('/home/pi/project2022/cameraProject/projectPhotos/image%s.jpg' % i) # stores the photo in a folder for photos (called "projectPhotos")
         camera.stop_preview()
