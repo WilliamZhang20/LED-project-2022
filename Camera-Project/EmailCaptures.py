@@ -1,4 +1,4 @@
-# Written in July 2022
+# First written in July 2022
 # In this program, I made a Raspberry Pi Camera Module take a photo every 10 seconds. After each capture, the program sends the photo to my email as an attachment.
 # To take the photo, I imported the PiCamera library, and defined a camera object. Once the photo is taken, the file is stored. 
 # To send the email, I used the SMTP (Simple Mail Transfer Protocol) server to access Yahoo mail and created the message with a MIME object. 
@@ -19,8 +19,8 @@ camera.rotation = 180 # the camera I used was placed upside down, so I flipped t
 
 for i in range(5): # repeats 5 times
         print "Take number", i+1
-        time.sleep(2) # at least 2 seconds break necessary for camera's light and focus adjustment
-        rand = random.randint(0, 5) # some random amount of time between 0 and 5 seconds 
+        time.sleep(3) # at least 2 seconds break necessary for camera's light and focus adjustment
+        rand = random.randint(0, 6) # some random amount of time between 0 and 5 seconds 
         time.sleep(rand);
         camera.start_preview()
         camera.capture('/home/pi/project2022/cameraProject/projectPhotos/image%s.jpg' % i) # stores the photo in a folder for photos (called "projectPhotos")
@@ -49,4 +49,4 @@ for i in range(5): # repeats 5 times
         s.login(email, password)
         s.sendmail(me, toaddr, msg.as_string())
         s.quit()
-        time.sleep(1) # an extra break, giving total of at least 3 and at most 8 seconds between captures
+        time.sleep(1) # an extra break, giving total of at least 4 and at most 10 seconds between captures
