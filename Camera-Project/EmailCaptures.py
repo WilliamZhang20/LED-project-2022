@@ -17,7 +17,7 @@ from email.mime.image import MIMEImage
 camera = PiCamera()
 camera.rotation = 180 # the camera I used was placed upside down, so I flipped the view over 
 
-for i in range(5): # repeats 5 times
+while True: # runs continuously until the user kills the program
         print "Take number", i+1
         time.sleep(3) # at least 2 seconds break necessary for camera's light and focus adjustment
         rand = random.randint(0, 6) # some random amount of time between 0 and 5 seconds 
